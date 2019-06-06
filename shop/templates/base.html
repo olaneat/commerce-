@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="{% static 'shop/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'shop/bootstrap/css/style1.css' %}">
+		<link  href = "{% static 'shop/bootstrap/css/css1.css' %}"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="{% static 'shop/bootstrap/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+<h1 id="head">SAGGZ SMART STORE</h1>
+
+<nav class="navbar navbar">
+	  <div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse"  >
+		    <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+		  </button>
+	  </div>
+	  <div class="navbar-collapse collapse">
+		  <ul class="nav navbar-nav">
+		    <li><a href="{% url 'index' %}">Home</a></li>
+		    <li><a href="">Level Updates</a></li>
+		    <li><a href="">Slides</a></li>
+		  </ul>
+		  <form class="navbar-form navbar-right" role="search" pla >
+		    <div class="form-group">
+		      <input type="text" class="form-control" placeholder="search">
+		    </div>
+		    <button class="btn btn-default" type="submit"><span class="glypicon glypicon-search"></span>Search</button>
+	    </form>
+	  </div>
+	</nav>
+	
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        {% block item-list %}
+      
+        {% endblock  %}
+      </div>
+      <div class="col-md-3">
+      <h2>Categories</h2>
+      {% block categories-list %}
+      
+      {% endblock  %}
+      </div>
+    </div>
+    {% block footer %}
+    
+    {% endblock  %}
+  </div>
+</body>
