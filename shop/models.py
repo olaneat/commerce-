@@ -31,7 +31,7 @@ class Product(models.Model):
     best_seller = models.BooleanField(default=False)
     category = models.ManyToManyField(Category )
     description = models.TextField()
-    created = models.DateTimeField(auto_now= True)
+    created = models.DateTimeField()
 
     class meta: 
         db_name = 'Product'
@@ -41,7 +41,7 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("cat", args= [self.slug,
+        return reverse("product-detail", args= [self.slug,
                                 self.created.year,
                                 self.created.strftime('%m'),
                                 self.created.strftime('%d')])

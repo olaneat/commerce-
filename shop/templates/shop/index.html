@@ -2,36 +2,51 @@
 {% load static %}
 
 <body>
-{% block item-list %}
-  {% if products %}
-    <ul>
-      {% for p in products  %}
-        <li>
-          <img src="{{p.image.url}}" width="250"><br>
-          <a href = "{{ get_absolute_url }}">{{p.name}}</a>
-        </li>
-      {% endfor %}
-    </ul>
-      
+<div class="container">
+  <div class="row">
+    {% block item-list %}
+      <div class="col-md-9">
+        {% if products %}
+          <ul>
+            {% for p in products  %}
+              <li>
+                <img src="{{p.image.url}}" width="100"><br>
+                <a href =  "{{ p.get_absolute_url }}">{{p.name}}</a>
+                <br><br>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p> No product available</p>
+        {% endif %}
+      </div>
+    {% endblock  %}
     
-  {% else %}
-  {% endif %}
-
-{% endblock  %}
-{% block categories-list %}
-  {% if collection %}
-    <ul> 
-      {% for cat in collection %}
-        <li>
-          <a href="{% url 'product-list'  %}"> {{cat.name}}</a>
-        </li>
+   {% block category-list %}
+    <div class="col-md-3">
+      <h2>Categories</h2>
+        {% if collection %}
+          <ul> 
+            {% for cat in collection %}
+              <li>
+                <a href="{% url 'product-list'  %}"> {{cat.name}}</a>
+              </li>
       
-      {% endfor %}
-    </ul>
-  
-  {% else %}
-    <p> There's no item category yet
-  {% endif %}
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p> There's no item category yet
+        {% endif %}
+      </div>  
+    {% endblock  %}
+      
 
-{% endblock  %}
+      
+
+  </div>
+</div>
+
+
+
 <body>
+     

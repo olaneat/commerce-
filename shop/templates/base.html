@@ -30,8 +30,8 @@
 	  <div class="navbar-collapse collapse">
 		  <ul class="nav navbar-nav">
 		    <li><a href="{% url 'index' %}">Home</a></li>
-		    <li><a href="">Level Updates</a></li>
-		    <li><a href="">Slides</a></li>
+		    <li><a href="">Products</a></li>
+		    <li><a href="">About</a></li>
 		  </ul>
 		  <form class="navbar-form navbar-right" role="search" pla >
 		    <div class="form-group">
@@ -41,23 +41,25 @@
 	    </form>
 	  </div>
 	</nav>
-	
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9">
+		<div class="container">
+			<div class="row">
         {% block item-list %}
+					<div class ="col-md-9">
+					</div>
       
         {% endblock  %}
-      </div>
-      <div class="col-md-3">
-      <h2>Categories</h2>
-      {% block categories-list %}
+            
+      	{% block category-list %}
+					<div class ="col-md-3">
+					</div>
       
-      {% endblock  %}
-      </div>
-    </div>
-    {% block footer %}
+      	{% endblock  %}
+      
+        {% block footer %}
     
-    {% endblock  %}
+    		{% endblock  %}
+		</div>
+		</div>
+
   </div>
 </body>

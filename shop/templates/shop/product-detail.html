@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+<div class= "container">
+  <div class="row">
+    {% block item-list %}
+      <div class="col-md-12">
+        <h2 class ="text-info" align="center">{{details.name}}</h2>
+        <br> 
+      </div>
+      <br><br>
+    </div>
+    <div class='row'>
+     <div class='col-md-4'>
+       <img src="{{ details.image.url }}" hieght= 250px width =300px>
+       <br>
+
+     </div>
+     <div class ="col-md-2"></div>
+     <div class = "col-md-7">
+      <p> <strong>Brand:</strong>{{details.brand}}</p><br>
+      <p><strong>Price: </strong>{{details.price}}</p><br>
+      <p><strong>Description:</strong><br></p>
+      <p>{{details.description}}</p><br><br>
+
+
+    <button type = "submit" class="text-success">Add to Cart </button> 
+
+
+
+     </div>
+   {% endblock  %}
+    
+  </div>
+  </div>
+</div>
