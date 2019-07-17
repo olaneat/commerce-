@@ -6,11 +6,11 @@
   <div class="row">
     {% block item-list %}
       <div class="col-md-9">
-        {% if products %}
+        {% if product %}
           <ul>
-            {% for p in products  %}
+            {% for p in product  %}
               <li>
-                <img src="{{p.image.url}}" width="100"><br>
+                <img src="{{p.image.url}}" alt="{{p.name}}" width="100"><br>
                 <a href =  "{{ p.get_absolute_url }}">{{p.name}}</a>
                 <br><br>
               </li>
@@ -25,13 +25,12 @@
    {% block category-list %}
     <div class="col-md-3">
       <h2>Categories</h2>
-        {% if collection %}
+        {% if category %}
           <ul> 
-            {% for cat in collection %}
+            {% for c in category %}
               <li>
-                <a href="{% url 'product-list'  %}"> {{cat.name}}</a>
+                <a href=" "> {{c.name}}</a>
               </li>
-      
             {% endfor %}
           </ul>
         {% else %}
